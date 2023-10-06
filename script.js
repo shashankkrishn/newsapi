@@ -1,5 +1,8 @@
-const API_KEY = "ab27ade71c0745698bf04fb2ab41504a";
-const url = "https://newsapi.org/v2/everything?q=";
+// const API_KEY = "ab27ade71c0745698bf04fb2ab41504a";
+// const url = "https://newsapi.org/v2/everything?q=";
+const API_KEY = "pub_30703caab8c9cdf6207ec39954d634211ded9";
+const url = "https://newsdata.io/api/1/news?";
+// const url = "https://newsdata.io/api/1/news?apikey=pub_30703caab8c9cdf6207ec39954d634211ded9&q=cryptocurrency";
 
 window.addEventListener("load", () => fetchNews("India"));
 
@@ -8,7 +11,8 @@ function reload() {
 }
 
 async function fetchNews(query) {
-    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+    // const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+      const res = await fetch(`${url}apiKey=${API_KEY}&q={query}$`);
     const data = await res.json();
     bindData(data.articles);
 }
